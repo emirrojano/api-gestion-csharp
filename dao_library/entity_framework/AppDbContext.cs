@@ -1,6 +1,16 @@
-public class AppDbContext : DbContext {
-    public AppDbContext(DbContextOptions options) : base(options) { } // No tiene que ir nada dentro de las llaves
+using Microsoft.EntityFrameworkCore;
+using entity_library;
 
+namespace dao_library.entity_framework;
+
+public class AppDbContext : DbContext 
+{
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { } 
     
-    public DbSet<Entity> Entities { get; set; } // Acá colocaremos la entidad que queremos guardar en la base de datos (se debe hacer con c/u de ellas)
+    public DbSet<Trainer> Trainers { get; set; }
+    public DbSet<Team> Teams { get; set; }
+    public DbSet<Player> Players { get; set; }
+    public DbSet<Student> Students { get; set; }
+    public DbSet<Course> Courses { get; set; }
+    public DbSet<Activity> Activities { get; set; }
 }
